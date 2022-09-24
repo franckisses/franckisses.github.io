@@ -1,0 +1,253 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Postgres 常用的命令 | Franck</title>
+<link rel="shortcut icon" href="https://franckisses.github.io//favicon.ico?v=1664037019609">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://franckisses.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Postgres 常用的命令 | Franck - Atom Feed" href="https://franckisses.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="基本操作
+删除shema
+drop schema public cascade; create schema public;
+这个命令也可以用于删除所有的表；
+Copy
+copy schma.table_name from filepath..." />
+    <meta name="keywords" content="Postgres" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://franckisses.github.io/">
+  <img class="avatar" src="https://franckisses.github.io//images/avatar.png?v=1664037019609" alt="">
+  </a>
+  <h1 class="site-title">
+    Franck
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="https://franckisses.github.io/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://www.github.com/franckisses" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Postgres 常用的命令
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-05-26
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://franckisses.github.io/tag/kg9t7xDhi/" class="post-tag">
+                  # Postgres
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h3 id="基本操作">基本操作</h3>
+<h4 id="删除shema">删除shema</h4>
+<p><code>drop schema public cascade; create schema public;</code><br>
+这个命令也可以用于删除所有的表；</p>
+<h4 id="copy">Copy</h4>
+<p><code>copy schma.table_name from filepath [delimiter '|'] csv header;</code><br>
+<code>copy schma.table_name to filepath [delimiter '|'] csv header ;</code></p>
+<h4 id="修改数据库密码">修改数据库密码</h4>
+<p><code>alter user postgres with password 'New Pass';</code></p>
+<h4 id="开启远程连接">开启远程连接</h4>
+<p>postgres.conf<br>
+<code>listen_address = '*'</code><br>
+pg_hba.conf<br>
+<code>host all all 0.0.0.0/0 md5</code></p>
+<h4 id="更改表名">更改表名</h4>
+<p><code>alter table table_name rename to new_table_name'</code></p>
+<h4 id="更改字段名">更改字段名</h4>
+<p><code>alter table table_name rename old_field to new_filed; </code></p>
+<h4 id="更改字段默认值">更改字段默认值</h4>
+<p><code>alter table table_name alter column filed set detault [datatype];</code></p>
+<h4 id="查看索引">查看索引</h4>
+<p><code>select * from pg_indexs where tablename='table_name'; </code><br>
+<code>select * form pg_statio_all_indexes where relname='table_name';</code></p>
+<h4 id="获取随机字符串">获取随机字符串</h4>
+<p><code>(array'['a','b'])[floor(random()*2::int + 1]</code></p>
+<h4 id="获取某个表中的所有字段">获取某个表中的所有字段</h4>
+<p><code>select column_name from information_schema.columns where table_name='table_name' and table_schema='table schema';</code></p>
+<h3 id="查看大小">查看大小</h3>
+<h4 id="查看某个库所占用的大小">查看某个库所占用的大小</h4>
+<p><code>select pg_site_pretty(pg_database_size('database name'));</code></p>
+<h4 id="查看某个表的大小">查看某个表的大小</h4>
+<p><code>select pg_size_pretty(pg_relation_size('table_name');</code></p>
+<h4 id="查看所有数据库大小">查看所有数据库大小</h4>
+<p><code>select pg_database.datname as database_name, </code><br>
+<code>pg_database_site(pg_database,datname)/1024/1024/1024 as site_in_mb </code><br>
+<code>from pg_database order by sitze_in_mb desc;</code></p>
+<h3 id="时间格式">时间格式</h3>
+<h4 id="时间转换">时间转换</h4>
+<p>MMDDYYYY --&gt; YYYY-MM-DD<br>
+<code>select to_date(dt,'MM/DD/YYYY') from test;</code></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">基本操作</a>
+<ul>
+<li><a href="#%E5%88%A0%E9%99%A4shema">删除shema</a></li>
+<li><a href="#copy">Copy</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81">修改数据库密码</a></li>
+<li><a href="#%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5">开启远程连接</a></li>
+<li><a href="#%E6%9B%B4%E6%94%B9%E8%A1%A8%E5%90%8D">更改表名</a></li>
+<li><a href="#%E6%9B%B4%E6%94%B9%E5%AD%97%E6%AE%B5%E5%90%8D">更改字段名</a></li>
+<li><a href="#%E6%9B%B4%E6%94%B9%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC">更改字段默认值</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%B4%A2%E5%BC%95">查看索引</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2">获取随机字符串</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E6%9F%90%E4%B8%AA%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%97%E6%AE%B5">获取某个表中的所有字段</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%A4%A7%E5%B0%8F">查看大小</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E5%BA%93%E6%89%80%E5%8D%A0%E7%94%A8%E7%9A%84%E5%A4%A7%E5%B0%8F">查看某个库所占用的大小</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E8%A1%A8%E7%9A%84%E5%A4%A7%E5%B0%8F">查看某个表的大小</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%A7%E5%B0%8F">查看所有数据库大小</a></li>
+</ul>
+</li>
+<li><a href="#%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F">时间格式</a>
+<ul>
+<li><a href="#%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2">时间转换</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://franckisses.github.io/post/frist-bolg-in-github-pages/">
+              <h3 class="post-title">
+                Frist bolg in github pages
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://franckisses.github.io" target="_blank">Franck</a>
+  <a class="rss" href="https://franckisses.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

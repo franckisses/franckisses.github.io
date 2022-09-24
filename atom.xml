@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://franckisses.github.io/</id>
+    <title>Franck</title>
+    <updated>2022-09-24T16:30:24.525Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://franckisses.github.io/"/>
+    <link rel="self" href="https://franckisses.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://franckisses.github.io/images/avatar.png</logo>
+    <icon>https://franckisses.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, Franck</rights>
+    <entry>
+        <title type="html"><![CDATA[Django restudy]]></title>
+        <id>https://franckisses.github.io/post/django-restudy/</id>
+        <link href="https://franckisses.github.io/post/django-restudy/">
+        </link>
+        <updated>2022-09-24T10:26:31.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="如果数据库设计的时候时间字段启用了时区设置在更新的时候可以使用django-自带的timezone函数">如果数据库设计的时候，时间字段启用了时区设置，在更新的时候可以使用django 自带的timezone函数。</h3>
+<pre><code>from django.utils import timezone
+
+last_login = timezone.now()
+</code></pre>
+<h3 id="如果使用python内建模块更新会出现以下警告">如果使用python内建模块更新会出现以下警告；</h3>
+<pre><code>from datetime import datetime
+last_login = datetime.now()
+警告如下：
+/Users/xxx/my_env/task_report/lib/python3.7/site-packages/django/db/models/fields/__init__.py:1419: RuntimeWarning: DateTimeField UserProfile.last_login received a naive datetime (2022-09-24 16:22:05.934670) while time zone support is active.
+  RuntimeWarning)
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[周记] 2022-08-01]]></title>
+        <id>https://franckisses.github.io/post/zhou-ji-2022-08-01/</id>
+        <link href="https://franckisses.github.io/post/zhou-ji-2022-08-01/">
+        </link>
+        <updated>2022-08-15T14:47:17.000Z</updated>
+        <content type="html"><![CDATA[<p>[上周]</p>
+<ol>
+<li>完成了Base shell 前三章内容。</li>
+<li>继续听播客。</li>
+</ol>
+<p>[本周]</p>
+<ol>
+<li>完成Bash shell 456章内容学习。</li>
+<li>上班最近实在是太忙了。工作时间基本上打字没听过。</li>
+<li>心理上，有点想回家了。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[周记] 2022-07-25]]></title>
+        <id>https://franckisses.github.io/post/zhou-ji-2022-07-25/</id>
+        <link href="https://franckisses.github.io/post/zhou-ji-2022-07-25/">
+        </link>
+        <updated>2022-08-15T14:44:13.000Z</updated>
+        <content type="html"><![CDATA[<p>[上周]<br>
+1  刷完leetcode SQL level 1所有题目。<br>
+2 认真听完 这一篇播客。The History and Mystery Of Eliza[https://corecursive.com/eliza-with-jeff-shrager/]<br>
+3. 工作中把 data monitor 代码测试。</p>
+<p>[本周]</p>
+<ol>
+<li>开始看第二本书Base shell 前三章.</li>
+<li>继续听英语博客。</li>
+<li>把工作中的代码好好整理一下。</li>
+<li>每天要和宝通话。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[周记] 2022-07-18]]></title>
+        <id>https://franckisses.github.io/post/zhou-ji-2022-07-18/</id>
+        <link href="https://franckisses.github.io/post/zhou-ji-2022-07-18/">
+        </link>
+        <updated>2022-07-17T17:28:21.000Z</updated>
+        <content type="html"><![CDATA[<p>[上周]：<br>
+上周埃及放假，比较懒，没干多少活。</p>
+<ol>
+<li>每天中午听英文播客。</li>
+<li>学习了数据库优化的内容。</li>
+<li>开始刷leetcode SQL的题目。</li>
+</ol>
+<p>[本周]</p>
+<ol>
+<li>刷完leetcode SQL level 1所有题目。</li>
+<li>认真听完 这一篇播客。The History and Mystery Of Eliza[https://corecursive.com/eliza-with-jeff-shrager/]</li>
+<li>工作中把 data monitor 代码测试。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[周记] 2022-07-03]]></title>
+        <id>https://franckisses.github.io/post/zhou-ji-2022-07-03/</id>
+        <link href="https://franckisses.github.io/post/zhou-ji-2022-07-03/">
+        </link>
+        <updated>2022-07-02T14:15:06.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="本周-20220626-20220702">[本周] 2022.06.26 - 2022.07.02</h3>
+<ol>
+<li>坚持完成云上运动7天，本周放假三天，又开始跑步了。跑完步大汗淋漓的感觉很爽。</li>
+<li>完成数据转移模块，公共时间模块编写，下周找时间测试。</li>
+<li>看完Fluent Python的最后一章，觉得有必要再看一遍。</li>
+<li>听了篇英文播客，讲的是在编码中，约定俗成一行写 80个字符的由来。</li>
+<li>本周的好消息是一个接一个。我感觉好想自己亲身经历了改革开放。从回国之后隔离由14 +7 变成7 +3。在埃及的行前隔离的时间也取消了。也就是说最多只需要隔离十天了。喜大普奔。</li>
+</ol>
+<h3 id="下周-20220703-20220709">[下周] 2022.07.03 -2022.07.09</h3>
+<ol>
+<li>上周未完成数据库优化，这周要多看一篇博客。</li>
+<li>Fluent Python看第一章和第二章。这次要多些思考，尽可能自己不看书能将代码实现一遍。</li>
+<li>本周继续听一下英文播客，还是需要记单词和发音。</li>
+<li>每天中午午休时候，继续听一下英文播客。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[周记] 2022-06-25]]></title>
+        <id>https://franckisses.github.io/post/zhou-ji-2022-06-25/</id>
+        <link href="https://franckisses.github.io/post/zhou-ji-2022-06-25/">
+        </link>
+        <updated>2022-06-25T21:13:09.000Z</updated>
+        <content type="html"><![CDATA[<p>之前在网上看到很多人，都在写公开的周记。我从现在也开始试试每周做个记录。</p>
+<h3 id="本周-20220619-20220625">本周 [2022.06.19 - 2022.06.25]</h3>
+<ol>
+<li>参加公司的云上运动坚持了7天。每天一万步。</li>
+<li>开始学些PG DBA的内容-窗口函数，Autovacuum。每周能写两篇阅读积累的知识点。发布于GitHub。</li>
+<li>对于数据Monitor 模块，有一些新的想法，争取下周代码实现。</li>
+<li>Fluent Python 看了动态属性这一章。有想法将工作上的代码数据的类型通过动态属性实现。</li>
+<li>最近给家里打电话的频率减少了。</li>
+<li>虽然加班有不少的收入，但是我讨厌加班。真的。</li>
+</ol>
+<h3 id="下周-20220626-20220702">下周 [2022.06.26 - 2022.07.02]</h3>
+<ol>
+<li>继续坚持云上运动7天。不要偷懒。</li>
+<li>这周主要学些一下，数据库的查询优化以及索引。</li>
+<li>看完Fluent Python最后一章内容。</li>
+<li>这周将Monitor 模块抽象出来。</li>
+<li>争取这周认真听一篇英文播客。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Postgres 常用的命令]]></title>
+        <id>https://franckisses.github.io/post/postgres-chang-yong-de-ming-ling/</id>
+        <link href="https://franckisses.github.io/post/postgres-chang-yong-de-ming-ling/">
+        </link>
+        <updated>2022-05-26T19:07:08.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="基本操作">基本操作</h3>
+<h4 id="删除shema">删除shema</h4>
+<p><code>drop schema public cascade; create schema public;</code><br>
+这个命令也可以用于删除所有的表；</p>
+<h4 id="copy">Copy</h4>
+<p><code>copy schma.table_name from filepath [delimiter '|'] csv header;</code><br>
+<code>copy schma.table_name to filepath [delimiter '|'] csv header ;</code></p>
+<h4 id="修改数据库密码">修改数据库密码</h4>
+<p><code>alter user postgres with password 'New Pass';</code></p>
+<h4 id="开启远程连接">开启远程连接</h4>
+<p>postgres.conf<br>
+<code>listen_address = '*'</code><br>
+pg_hba.conf<br>
+<code>host all all 0.0.0.0/0 md5</code></p>
+<h4 id="更改表名">更改表名</h4>
+<p><code>alter table table_name rename to new_table_name'</code></p>
+<h4 id="更改字段名">更改字段名</h4>
+<p><code>alter table table_name rename old_field to new_filed; </code></p>
+<h4 id="更改字段默认值">更改字段默认值</h4>
+<p><code>alter table table_name alter column filed set detault [datatype];</code></p>
+<h4 id="查看索引">查看索引</h4>
+<p><code>select * from pg_indexs where tablename='table_name'; </code><br>
+<code>select * form pg_statio_all_indexes where relname='table_name';</code></p>
+<h4 id="获取随机字符串">获取随机字符串</h4>
+<p><code>(array'['a','b'])[floor(random()*2::int + 1]</code></p>
+<h4 id="获取某个表中的所有字段">获取某个表中的所有字段</h4>
+<p><code>select column_name from information_schema.columns where table_name='table_name' and table_schema='table schema';</code></p>
+<h3 id="查看大小">查看大小</h3>
+<h4 id="查看某个库所占用的大小">查看某个库所占用的大小</h4>
+<p><code>select pg_site_pretty(pg_database_size('database name'));</code></p>
+<h4 id="查看某个表的大小">查看某个表的大小</h4>
+<p><code>select pg_size_pretty(pg_relation_size('table_name');</code></p>
+<h4 id="查看所有数据库大小">查看所有数据库大小</h4>
+<p><code>select pg_database.datname as database_name, </code><br>
+<code>pg_database_site(pg_database,datname)/1024/1024/1024 as site_in_mb </code><br>
+<code>from pg_database order by sitze_in_mb desc;</code></p>
+<h3 id="时间格式">时间格式</h3>
+<h4 id="时间转换">时间转换</h4>
+<p>MMDDYYYY --&gt; YYYY-MM-DD<br>
+<code>select to_date(dt,'MM/DD/YYYY') from test;</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Frist bolg in github pages]]></title>
+        <id>https://franckisses.github.io/post/frist-bolg-in-github-pages/</id>
+        <link href="https://franckisses.github.io/post/frist-bolg-in-github-pages/">
+        </link>
+        <updated>2022-05-25T21:30:39.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>哈哈。第一次尝试使用github pages. 很有意思。
+</code></pre>
+]]></content>
+    </entry>
+</feed>
